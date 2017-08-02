@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     registrations: 'members/registrations'
   }
   
+  resources :instructors, only: [:show]
+  resources :members, only: [:show]
 end
