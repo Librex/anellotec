@@ -5,6 +5,7 @@
   <div class="panel-body">
     <div class="container">
       <%= form_for @course, html: {multipart: true} do |f| %>
+      <%= render 'shared/errors' %>
 
         <div class="row">
           <div class="form-group">
