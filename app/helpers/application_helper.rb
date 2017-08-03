@@ -18,9 +18,9 @@ module ApplicationHelper
   
   def thumbnail_url(course)
     if course.thumbnail.present?
-      instructor.thumbnail.url
+      course.thumbnail.url(:thumb)
     else
-      'default_image.png'
+      'default_thumbsmall.png'
     end
   end
   

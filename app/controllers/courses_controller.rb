@@ -28,7 +28,7 @@ before_action :authenticate_instructor!, except: [:show]
 
   def update
     if @course.update(course_params)
-      redirect_to course, notice: "変更が保存されました。"
+      redirect_to @course, notice: "変更が保存されました。"
     else
       render :edit
     end

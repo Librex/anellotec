@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "コース一覧", courses_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">あなたが登録したコース一覧</div>
+      <div class="panel-body">
+        <% @courses.each do |course| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= image_tag thumbnail_url(course) %>
+            </div>
+            <div class="col-md-7">
+              <h4><%= course.title %></h4>
+            </div>                              
+            <div class="col-md-3 right">
+              <%= link_to "編集する", edit_course_path(course), class: "btn btn-primary" %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        
+          <%= link_to "新規コースを作成する", new_course_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
