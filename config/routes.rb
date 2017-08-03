@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   
   resources :instructors, only: [:show]
   resources :members, only: [:show]
+  
+  resources :courses
 end
