@@ -26,6 +26,7 @@ gem 'rails-i18n'
 
 gem 'paperclip'
 gem 'autoprefixer-rails'
+gem 'paperclip-cloudinary'
 
 gem 'font-awesome-sass'
 

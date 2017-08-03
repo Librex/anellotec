@@ -10,6 +10,10 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+* 
+config/cloudinary.ymlのCloud nameを記載
+heroku config:set CLOUDINARY_API_KEY=ここにAPI_keyを記載
+heroku config:set CLOUDINARY_API_SECRET=ここにAPI_secretを記載
 
 * Database creation
 

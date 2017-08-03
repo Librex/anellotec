@@ -3,4 +3,7 @@ class Course < ApplicationRecord
   
   validates :title, presence: true, length: {maximum: 75}
   validates :abstract, presence: true, length: {maximum: 600}
+  
+  has_attached_file :thumbnail, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\z/
 end
