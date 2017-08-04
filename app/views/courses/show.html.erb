@@ -1,0 +1,64 @@
+</div>
+<!--  コースタイトル　-->
+<header class="header-image">
+  <div class="headline">
+    <h2><%= @course.title %></h2>
+  </div>
+</header>
+
+<div class="container">
+
+
+
+
+<div class="row">
+  <!-- コース左欄 -->
+  <div class="col-md-3">
+    <div class="pricingTable">
+      <div class="pricingTable-header">
+        <h4>Standard</h4>
+        <span>Lorem ipsum dolor sit</span>
+        <span class="price-value">$<span>10</span></span>
+      </div>
+      <div class="pricingContent">
+        <ul>
+          <li><b>講師：</b> <%= @course.instructor.fullname %></li>
+          <li><b>50</b> Email Accounts</li>
+          <li><b>50GB</b> Monthly Bandwidth</li>
+          <li><b>10</b> subdomains</li>
+          <li><b>50</b> Domains</li>
+        </ul>
+      </div>
+      
+      <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+        <a href="#" class="btn btn-block btn-default">sign up</a>
+      </div><!-- BUTTON BOX-->
+    </div>
+  </div>
+  
+    <!-- コース右欄 -->
+  <div class="col-md-1"></div>
+  <div class="col-md-8">
+    <h1>コース概要</h1><hr>
+    <%= @course.abstract %>
+    <hr>
+
+    <h1>講師</h1>
+    <div class="col-md-3">
+      <%= image_tag @course.instructor.avatar, class:"img-circle avatar-large" %>
+    </div>
+    <div class="col-md-5">
+      <p>名前：<%= @course.instructor.fullname %></p>
+    </div>
+    
+  </div>
+  
+
+
+
+  
+  
+  
+</div>
+
+  

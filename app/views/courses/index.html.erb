@@ -13,10 +13,15 @@
             <div class="col-md-2">
               <%= image_tag thumbnail_url(course) %>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <h4><%= course.title %></h4>
-            </div>                              
-            <div class="col-md-3 right">
+            </div>
+            
+            <div class="col-md-2 right">
+              <%= link_to "確認する", course_path(course), class: "btn btn-primary" %>
+            </div>
+                          
+            <div class="col-md-2 right">
               <%= link_to "編集する", edit_course_path(course), class: "btn btn-primary" %>
             </div>
           </div>

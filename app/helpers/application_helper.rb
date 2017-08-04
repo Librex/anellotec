@@ -24,4 +24,12 @@ module ApplicationHelper
     end
   end
   
+  def thumbnail1_url(course)
+    if course.thumbnail.present?
+      course.thumbnail.url(:medium)
+    else
+      'default_image.png'
+    end
+  end
+  
 end
