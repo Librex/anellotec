@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  header: false
+  title: MyString
+  content: MyText
+  number: 1
+  course: one
+
+two:
+  header: false
+  title: MyString
+  content: MyText
+  number: 1
+  course: two
