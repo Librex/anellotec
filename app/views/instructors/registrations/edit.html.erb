@@ -1,38 +1,35 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item">
-        <%= link_to 'プロフィールを編集', edit_instructor_registration_path, class: 'sidebar-link active' %>
-      </li>
-    </ul>
-    <br>
-
-    <%= link_to '自分のプロフィールを見る', instructor_path(current_instructor.id), class: 'btn btn-default wide' %>
+<nav class="navbar">
+  <div class="container">
   </div>
+</nav><br>
 
-  <div class="col-md-7 text-center">
-    <div class="panel panel-default">
-      <div class="panel-heading">マイプロフィール(講師)</div>
-        <div class="panel-body">
-          <div class="container">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= render 'shared/devise_errors' %>
+<%= render 'shared/instructor_sidebar' %>
 
+<div class="fullcontainer"><br>
+  <div class="row">
+    <div class="col-md-10 text-center">
+      <div class="panel panel-default">
+        <div class="panel-heading">プロフィール</div>
+          <div class="panel-body">
+            <div class="container">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render 'shared/devise_errors' %>
 
+              <div class="form-group">
+                <p class="text-left">講師名</p>
+                <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "名前" %>
+              </div>
 
-            <div class="form-group">
-              <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "名前" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
-            </div>
+              <div class="form-group">
+                <p class="text-left">メールアドレス</p>
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+              </div>
 
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   <span class="btn btn-default btn-file">
-                   画像をアップ
+                   アバター画像をアップ
                     <%= f.file_field :avatar %>
                   </span>
                 </div>
@@ -40,20 +37,22 @@
             </div>
 
             <div class="form-group">
+              <p class="text-left">所属（会社名など）</p>
               <%= f.text_field :company_name, class: "form-control", placeholder: "所属" %>
             </div>
 
             <div class="form-group">
+              <p class="text-left">プロフィール</p>
               <%= f.text_area :profile, rows:5, col:25, class: "form-control", placeholder: "自己紹介" %>
             </div>
             
-            <a>プロフィールを変更したい場合には、下枠に現在のパスワードを入力して更新してください。</a>
+            <a>個人情報を変更した場合には、下枠に現在のパスワードを入力して更新ボタンを押してください。</a>
             <div class="form-group">
               <br />
               <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
             </div>
 
-            <a>パスワードを変更したい場合には、下枠に新しいパスワードを入力してください。</a>
+            <a>パスワードを変更したい場合には、下枠（２つ）に新しいパスワードを入力してください。</a>
             <div class="form-group">
               <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
             </div>
@@ -72,4 +71,4 @@
       </div>
 
   </div>
-</div>
+  </div>  </div>

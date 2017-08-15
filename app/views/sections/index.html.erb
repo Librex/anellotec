@@ -1,0 +1,61 @@
+<nav class="navbar">
+  <div class="container">
+  </div>
+</nav><br>
+
+<%= render 'shared/instructor_sidebar' %>
+
+<div class="fullcontainer"><br>
+  <div class="row">
+    <div class="col-md-10"><h2><%= @course.title %>: Sections index</h2></div>
+    
+    <div class="col-md-10">
+      <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    		<thead>
+					<tr>
+					  <th>number（並び順）</th>
+						<th>title</th>
+						<th>header?</th>
+            <th>Edit Section</th>
+            <th>Section Preview</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+					  <th>number（並び順）</th>
+						<th>title</th>
+						<th>header?</th>
+            <th>Edit Section</th>
+            <th>Section Preview</th>
+					</tr>
+				</tfoot>
+        
+        <% @sections.order(:number).each do |section| %>
+				  <tbody>
+					  <tr>
+					    
+						  <td><%= section.number %></td>
+						  <td><%= section.title %></td>
+						  <td><%= section.header %></td>
+              <td><!-- セクション編集部分　-->
+                <%= link_to edit_course_section_path(@course, section) do %>
+                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                <% end %>
+              </td>
+              
+              <th><!-- セクションプレビュー部分　-->
+                <%= link_to course_section_path(@course, section) do %>
+                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                <% end %>
+              </th>
+					  </tr>
+				  </tbody>
+				<% end %>
+				
+			</table>
+			
+			<%= link_to "新規コースを作成する", new_course_section_path(@course), class: "btn btn-info" %>
+    </div>
+	</div>
+</div>

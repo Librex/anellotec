@@ -9,41 +9,44 @@
   <div class="row">
     <div class="col-md-10 text-center">
       <div class="panel panel-default">
-        <div class="panel-heading">コース情報の編集</div>
+        <div class="panel-heading">セクション情報の編集</div>
           <div class="panel-body">
             <div class="container">
-      <%= form_for @course, html: {multipart: true} do |f| %>
+      <%= form_for(@section, url: polymorphic_path([@course, @section])) do |f| %>
       <%= render 'shared/errors' %>
-
+      
+        <div class="row">
+          <div class="form-group text-left">
+            <label>このセクションは、<%= @course.title %>のタスクです。</label>
+          </div>
+        </div>
+        
         <div class="row">
           <div class="form-group">
-            <p class="text-left">コース名</p>
-            <%= f.text_field :title, placeholder: "コース名", class: "form-control" %>
+            <p class="text-left">セクション名</p>
+            <%= f.text_field :title, placeholder: "セクション名", class: "form-control" %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group">
-            <p class="text-left">コース概要</p>
-              <%= f.text_area :abstract, rows:4, placeholder: "コースの概要を記載してください。",
+            <p class="text-left">セクション内容：講義内容</p>
+              <%= f.text_area :content, rows:4, placeholder: "セクション内容を記載してください。",
                 class: "form-control" %>
           </div>
         </div>
-
+        
         <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <span class="btn btn-default btn-file">
-                <i class = "fa fa-cloud-upload fa-lg"></i> 画像アップロード
-                <%= f.file_field :thumbnail %>
-              </span>
-            </div>
+          <div class="form-group">
+            <p class="text-left">並び順</p>
+              <%= f.number_field :number, placeholder: "数字",
+                class: "form-control" %>
           </div>
         </div>
-
+        
         <div class="row">
           <div class="form-group text-left">
-            <%= f.check_box :active %> コースを公開状態にしますか？
+            <%= f.check_box :header %> ヘッダーですか？
           </div>
         </div>
 
@@ -58,5 +61,11 @@
 
     </div>
   </div>
+</div></div>
+
+<div class="col-md-10">
+  <h2>セクション内容のライブプレビュー</h2>
+  
 </div>
-</div></div></div>
+
+</div></div>

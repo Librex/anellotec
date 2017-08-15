@@ -1,8 +1,14 @@
+<nav class="navbar">
+  <div class="container">
+  </div>
+</nav><br>
+
+<div class="container">
 <div class="row">
   <div class="col-md-3">
     <%= image_tag avatar_url(@instructor), class: "avatar-full" %>
     <div class="panel panel-default">
-      <div class="panel-heading">(講師)登録情報</div>        
+      <div class="panel-heading">登録情報</div>        
       <div class="panel-body">
         所属: <%= @instructor.company_name %><br>
       </div>
@@ -15,4 +21,4 @@
       <%= @instructor.profile %>
     </div>
   </div>
-</div>
+</div></div>

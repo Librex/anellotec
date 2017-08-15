@@ -21,6 +21,7 @@ before_action :authenticate_instructor!, except: [:show]
   end
 
   def show
+    @sections = @course.sections
   end
 
   def edit

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav id="menu-wrap" class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -10,13 +10,11 @@
       </button>
       <%= link_to 'Anellotec', root_path, { :class=>"navbar-brand" } %>
     </div>
-    <div id="navbar" class="navbar-collapse collapse right">
+    <div id="navbar menu" class="navbar-collapse collapse right">
       <ul class="nav navbar-nav navbar-right">
-        
         <% if (!instructor_signed_in? && !member_signed_in?) %>
           <li><%= link_to '会員登録', new_member_registration_path %></li>
-          <li><%= link_to 'ログイン（生徒）', new_member_session_path %></li>
-          <li><%= link_to 'ログイン（講師）', new_instructor_session_path %></li>
+          <li><%= link_to 'ログイン', new_member_session_path %></li>
         <% else %>
           <% if (instructor_signed_in?) %>
             <li class="dropdown">
@@ -27,8 +25,7 @@
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "HOME", root_path %></li>
-                <li><%= link_to 'プロフィールを編集', edit_instructor_registration_path %></li>
-                <li><%= link_to 'コースを編集する', courses_path %></li>
+                <li><%= link_to 'ダッシュボードヘ', courses_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'ログアウト', destroy_instructor_session_path, method: :delete %></li>
               </ul>
@@ -55,3 +52,19 @@
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+
+<script>
+var menuHeight = $("#menu-wrap").height();
+var startPos = 0;
+$(window).scroll(function(){
+  var currentPos = $(this).scrollTop();
+  if (currentPos > startPos) {
+    if($(window).scrollTop() >= 200) {
+      $("#menu-wrap").css("top", "-" + menuHeight + "px");
+    }
+  } else {
+    $("#menu-wrap").css("top", 0 + "px");
+  }
+  startPos = currentPos;
+});
+</script>

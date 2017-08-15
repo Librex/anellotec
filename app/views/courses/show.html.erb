@@ -1,8 +1,38 @@
-</div>
 <!--  コースタイトル　-->
-<header class="header-image">
-  <div class="headline">
+<header class="course-hd-image">
+  <div class="course-headline">
     <h2><%= @course.title %></h2>
+  </div>
+  
+  <div class="heading_info">
+    <ul>
+      <li>
+        <div class="author" itemprop="creator">
+          <span class="avatar">
+            <%= image_tag @course.instructor.avatar, class:"img-circle avatar-medium" %>
+          </span>
+          
+          <div class="info">
+            <label>Teacher</label>
+            <span><%= link_to @course.instructor.fullname, instructor_path(@course.instructor.id) %></span>
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <label>Students</label>
+        654 (人の生徒が受講)
+      </li>
+      
+      <li>
+        <label>Review</label>
+        <div class="course-rate">
+          <div class="review-stars-rated">
+            <p class="review-number"> (0 Reviews) </p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </header>
 
@@ -43,14 +73,20 @@
     <%= markdown(@course.abstract) %>
     <hr>
 
-    <h1>講師</h1>
-    <div class="col-md-3">
-      <%= image_tag @course.instructor.avatar, class:"img-circle avatar-large" %>
-    </div>
-    <div class="col-md-5">
-      <p>名前：<%= @course.instructor.fullname %></p>
-    </div>
     
+      <% @sections.each do |section| %>
+        <% if section.header %>
+          <div class="collection-item active">
+            <i class="mdi-social-school"> <%= section.title %></i>
+          </div>
+        <% else %>
+          <%= link_to [section.course, section], class: "collection-item" do %>
+            <%= section.title %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
   </div>
   
 
@@ -62,3 +98,4 @@
 </div>
 
   
+</div>
