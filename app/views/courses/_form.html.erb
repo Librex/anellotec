@@ -1,7 +1,4 @@
-<nav class="navbar">
-  <div class="container">
-  </div>
-</nav><br>
+<%= render 'layouts/dashboardheader' %>
 
 <%= render 'shared/instructor_sidebar' %>
 
@@ -38,6 +35,14 @@
                 <%= f.file_field :thumbnail %>
               </span>
             </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="form-group">
+            <p class="text-left">コース価格</p>
+              <%= f.number_field :price, placeholder: "コース価格（円）",
+                class: "form-control" %>
           </div>
         </div>
 

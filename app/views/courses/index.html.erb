@@ -1,7 +1,4 @@
-<nav class="navbar">
-  <div class="container">
-  </div>
-</nav><br>
+<%= render 'layouts/dashboardheader' %>
 
 <%= render 'shared/instructor_sidebar' %>
 
@@ -41,7 +38,7 @@
 					    
 						  <td><%= image_tag thumbnail_url(course) %></td>
 						  <td><%= course.title %></td>
-						  <td>価格</td>
+						  <td><%= course.price %></td>
 						  <td><%= course.active %></td>
               <td><!-- コース編集部分　-->
                 <%= link_to edit_course_path(course) do %>

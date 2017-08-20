@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   
   root 'pages#home'
 
-  devise_for :instructors, controllers: {
+  devise_for :instructors, path: "instructors", controllers: {
       sessions:      'instructors/sessions',
       passwords:     'instructors/passwords',
       registrations: 'instructors/registrations'
-    }
+    }, path_names: { sign_up: 'touroku'}
     
   devise_for :members, controllers: {
     sessions:      'members/sessions',
@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   
   resources :courses do
     resources :sections
+    resources :subscriptions, only: [:create]
   end
 end

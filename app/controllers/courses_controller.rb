@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
 
 before_action :set_course, only: [:show, :edit, :update]
 before_action :authenticate_instructor!, except: [:show]
+before_action :require_same_instructor, only: [:edit, :update]
 
   def index
     @courses = current_instructor.courses
@@ -41,7 +42,13 @@ private
   end
   
   def course_params
-    params.require(:course).permit(:title, :abstract, :thumbnail, :active)
+    params.require(:course).permit(:title, :abstract, :thumbnail, :active, :price)
   end
 
+  def require_same_instructor
+    if current_instructor.id != @course.instructor_id
+      flash[:danger] = "このページを編集する権限を持ちません。"
+      redirect_to root_path
+    end
+  end
 end

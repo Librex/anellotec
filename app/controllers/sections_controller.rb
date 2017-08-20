@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
 before_action :set_section, only: [:show, :edit, :update]
 before_action :authenticate_instructor!
+before_action :require_same_instructor, except: [:show]
 
   def index
     @course = Course.find(params[:course_id])
@@ -50,4 +51,11 @@ private
     params.require(:section).permit(:title, :header, :content, :number)
   end
   
+  def require_same_instructor
+    @course = Course.where(:id => params[:course_id]).first
+    if current_instructor.id != @course.instructor_id
+      flash[:danger] = "このページを編集する権限を持ちません。"
+      redirect_to root_path
+    end
+  end
 end

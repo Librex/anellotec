@@ -117,7 +117,7 @@ body {
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
+    background-color: #222;
     border-color: #00bce4;
 }
 /**  navigation bar **/
@@ -213,7 +213,7 @@ body {
 .course-hd-image {
     display: block;
     width: 100%;
-    height: 600px;
+    height: 400px;
     margin-top: -20px;
     text-align: center;
     background: image-url("courseback.jpg") no-repeat center center scroll;
@@ -225,7 +225,8 @@ body {
 }
 
 .course-headline {
-    padding: 200px 0;
+    padding-top: 150px;
+    padding-bottom: 50px;
 }
 .course-headline h2 {
     font-size: 44px;
@@ -556,4 +557,104 @@ color: #fff !important;
 background: #428bca !important;
 border-color: #357ebd !important;
 box-shadow:none !important;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.profile-hd-image {
+    display: block;
+    width: 100%;
+    height: 300px;
+    margin-top: -20px;
+    text-align: center;
+    background: image-url("courseback.jpg") no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin-bottom: 40px;
+}
+
+.profile-headline {
+    padding: 150px 0;
+    color: white;
+}
+.single-button .price-box {
+    font-size: 30px;
+    font-weight: 700;
+    background: #f6f9fa;
+    text-align: center;
+    padding: 28px 10px 34px;
+    border: 1px solid #e1e8ed;
+}
+.single-button .button-box {
+    border: 1px solid #e1e8ed;
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: rgb(225, 232, 237);
+    border-top: 0;
+    padding: 30px 21px;
+}
+.single-button .button-box button {
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 36px;
+    color: inherit;
+}
+.single-button .button-box .includes-box ul li {
+    margin-bottom: 7px;
+}
+.single-button .button-box .includes-box {
+    padding-top: 23px;
+    margin-top: 23px;
+    border-top: 1px solid #e1e8ed;
+}
+.single-button .button-box .includes-box ul {
+    list-style: none;
+}
+.single-button .button-box .includes-box ul li i {
+    margin-right: 10px;
+}
+.single-button .button-box .includes-box h3 {
+    margin: 0 0 5px;
+    text-align: center;
+}
+.course_image {
+  width: 100%;
+  height: 100%;
+}
+.single-button .button-box .includes-box ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+.section-hd-image {
+    display: block;
+    width: 100%;
+    height: 400px;
+    margin-top: -20px;
+    text-align: center;
+    background: image-url("courseback.jpg") no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin-bottom: 40px;
+}
+
+.section-headline {
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+.section-headline h2 {
+    font-size: 44px;
+    line-height: 1.6em;
+    color: #fff;
 }

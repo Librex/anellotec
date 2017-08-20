@@ -1,3 +1,5 @@
+<%= render 'layouts/navigation' %>
+
 <!--  コースタイトル　-->
 <header class="course-hd-image">
   <div class="course-headline">
@@ -37,65 +39,55 @@
 </header>
 
 <div class="container">
-
-
-
-
-<div class="row">
+  <div class="row">
   <!-- コース左欄 -->
-  <div class="col-md-3">
-    <div class="pricingTable">
-      <div class="pricingTable-header">
-        <h4>Standard</h4>
-        <span>Lorem ipsum dolor sit</span>
-        <span class="price-value">$<span>10</span></span>
-      </div>
-      <div class="pricingContent">
-        <ul>
-          <li><b>講師：</b> <%= @course.instructor.fullname %></li>
-          <li><b>50</b> Email Accounts</li>
-          <li><b>50GB</b> Monthly Bandwidth</li>
-          <li><b>10</b> subdomains</li>
-          <li><b>50</b> Domains</li>
-        </ul>
+    <div class="col-md-9">
+      <%= image_tag @course.thumbnail, class: "course_image" %>
+      <h3>コース概要</h3><hr>
+      <%= markdown(@course.abstract) %>
+      <hr>
+      
+      <h3>カリキュラム</h3><hr>
+      <div class="list-group" data-no-turbolink>
+				<% @sections.order(:number).each do |section| %>
+					<% if section.header %>
+						<div class="list-group-item active">
+							<i class="mdi-social-school"> <%= section.title %></i>
+						</div>
+					<% else %>
+						<div class="list-group-item">
+						  <%= section.title %>
+						</div>
+					<% end %>
+				<% end %>
       </div>
       
-      <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-        <a href="#" class="btn btn-block btn-default">sign up</a>
-      </div><!-- BUTTON BOX-->
     </div>
-  </div>
-  
-    <!-- コース右欄 -->
-  <div class="col-md-1"></div>
-  <div class="col-md-8">
-    <h1>コース概要</h1><hr>
-    <%= markdown(@course.abstract) %>
-    <hr>
 
-    
-      <% @sections.each do |section| %>
-        <% if section.header %>
-          <div class="collection-item active">
-            <i class="mdi-social-school"> <%= section.title %></i>
-          </div>
-        <% else %>
-          <%= link_to [section.course, section], class: "collection-item" do %>
-            <%= section.title %>
-          <% end %>
-        <% end %>
-      <% end %>
-
-
-  </div>
-  
-
-
-
-  
-  
-  
+  <!-- コース右欄 -->
+    <div id="sing-button-sidebar" class="col-md-3 col-sm-12 sticky-sidebar">
+      <div class="single-button">
+        <div class="price-box">
+          <span class="course-price"><%= @course.price %>円</span> 
+        </div>
+        
+        <div class="button-box">
+<form name="purchase-course" class="purchase-course" method="post" enctype="multipart/form-data">
+<input name="purchase-course" value="137" type="hidden">
+<button id="learn_press_take_course" class="btn btn-primary purchase-button">
+Buy this course </button>
+</form>
+<div class="includes-box">
+<h3>Includes</h3>
+<ul>
+<li><i class="fa fa-pagelines"></i> Full lifetime access</li>
+<li><i class="fa fa-language"></i> Language: 日本語</li>
+</ul>
+</div>
+</div>
 </div>
 
-  
+    </div>
+
+  </div>
 </div>

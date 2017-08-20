@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807082014) do
+ActiveRecord::Schema.define(version: 20170820075557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170807082014) do
     t.string "thumbnail_content_type"
     t.integer "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.integer "price"
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
@@ -88,6 +89,18 @@ ActiveRecord::Schema.define(version: 20170807082014) do
     t.index ["course_id"], name: "index_sections_on_course_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "course_id"
+    t.bigint "member_id"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_subscriptions_on_course_id"
+    t.index ["member_id"], name: "index_subscriptions_on_member_id"
+  end
+
   add_foreign_key "courses", "instructors"
   add_foreign_key "sections", "courses"
+  add_foreign_key "subscriptions", "courses"
+  add_foreign_key "subscriptions", "members"
 end
