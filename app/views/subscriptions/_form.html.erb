@@ -1,0 +1,6 @@
+<%= form_for([@course, @course.subscriptions.new]) do |f| %>     
+  <%= f.hidden_field :course_id, value: @course.id %>
+  <%= f.hidden_field :price, value: @course.price %>
+
+  <%= f.submit "購入する", class: "btn btn-primary center-block" %>
+<% end %>

@@ -658,3 +658,10 @@ box-shadow:none !important;
     line-height: 1.6em;
     color: #fff;
 }
+
+.panel-heading.preview {
+  padding: 0;
+}
+.panel-heading.preview img{  
+  width: 100%;
+}

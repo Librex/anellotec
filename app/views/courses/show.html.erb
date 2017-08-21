@@ -72,20 +72,17 @@
         </div>
         
         <div class="button-box">
-<form name="purchase-course" class="purchase-course" method="post" enctype="multipart/form-data">
-<input name="purchase-course" value="137" type="hidden">
-<button id="learn_press_take_course" class="btn btn-primary purchase-button">
-Buy this course </button>
-</form>
-<div class="includes-box">
-<h3>Includes</h3>
-<ul>
-<li><i class="fa fa-pagelines"></i> Full lifetime access</li>
-<li><i class="fa fa-language"></i> Language: 日本語</li>
-</ul>
-</div>
-</div>
-</div>
+          <%= render 'subscriptions/form' %>  
+
+          <div class="includes-box">
+            <h3>Includes</h3>
+            <ul>
+              <li><i class="fa fa-pagelines"></i> Full lifetime access</li>
+              <li><i class="fa fa-language"></i> Language: 日本語</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     </div>
 

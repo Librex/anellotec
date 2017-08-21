@@ -3,8 +3,13 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription = current_member.subscriptions.create(subscription_params)       
-    redirect_to @subscription.course, notice: "コースの受講希望を承りました。"
+    redirect_to @subscription.course, notice: "購入処理が完了しました。"
   end
+
+  def purchase_history
+    @purchases = current_member.subscriptions
+  end
+
 
   private
     def subscription_params         

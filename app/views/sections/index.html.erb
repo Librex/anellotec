@@ -37,13 +37,13 @@
 						  <td><%= section.header %></td>
               <td><!-- セクション編集部分　-->
                 <%= link_to edit_course_section_path(@course, section) do %>
-                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                  <button class="btn btn-primary btn-xs center-block"><span class="glyphicon glyphicon-pencil"></span></button>
                 <% end %>
               </td>
               
               <th><!-- セクションプレビュー部分　-->
                 <%= link_to course_section_path(@course, section) do %>
-                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                  <button class="btn btn-primary btn-xs center-block"><span class="glyphicon glyphicon-eye-open"></span></button>
                 <% end %>
               </th>
 					  </tr>

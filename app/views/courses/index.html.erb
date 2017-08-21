@@ -42,19 +42,19 @@
 						  <td><%= course.active %></td>
               <td><!-- コース編集部分　-->
                 <%= link_to edit_course_path(course) do %>
-                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                  <button class="btn btn-primary btn-xs center-block"><span class="glyphicon glyphicon-pencil"></span></button>
                 <% end %>
               </td>
               
               <td><!-- コースプレビュー部分　-->
                 <%= link_to course_path(course) do %>
-                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                  <button class="btn btn-primary btn-xs center-block"><span class="glyphicon glyphicon-eye-open"></span></button>
                 <% end %>
               </td>
               
               <td><!-- セクション一覧へ　-->
                 <%= link_to course_sections_path(course) do %>
-                  <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                  <button class="btn btn-primary btn-xs center-block"><span class="glyphicon glyphicon-pencil"></span></button>
                 <% end %>
               </td>
               
